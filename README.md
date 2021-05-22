@@ -11,8 +11,6 @@
     -   [The total number of accidents in each hour](#the-total-number-of-accidents-in-each-hour)
     -   [The total number of accidents in each part of the day](#the-total-number-of-accidents-in-each-part-of-the-day)
 -   [Conclusions](#conclusions)
-    -   [Main Observations](#main-observations)
-    -   [Future Directions](#future-directions)
 -   [Run Notebook in Google Colab](#run-notebook-in-google-colab)
 -   [Youtube Video Link](#youtube-video-link)
 -   [Inquiries](#inquiries)
@@ -152,29 +150,7 @@ Finally, the bar chart in figure (7) shows the average number of accidents which
 </p>
 
 # Conclusions
-The goal of our analysis was to explore factors that lead to higher accident rates and higher rates of severe accidents. We explored data containing different road and weather conditions at the sight of accidents across the United States. Based on our analysis we make the following conclusions:
-
-## Main Observations
-
-First we observe some trends in accident rates among states. South Carolina and Oregon in particular display high rates of accidents per 1000 residents. Furthermore, the Southeast and Midwest regions appear to have higher rates of accidents. We observe also that communities with higher rates of public transport and lower rates of driving commutes record fewer accidents.
-
-General Conditions: The highest rates of accidents occur during weekdays during the morning and evening commuting hours. However, accidents tend to be more severe accidents occur on weekends and during the middle of the night.
-
-Road Conditions: Road conditions that decrease the rate of accidents are most notably the presence of Stops and Bumps. Traffic Signals and Crossings decrease the severity of accidents that occur in nearby locations. On the other hand, Junctions seem to increase the severity of nearby accidents.
-
-Weather Conditions: Weak relationships between Temperature, Humidity and Severity were observed. As Humidity increases, accident severity increases, and as temperature decreases, accident severity increases. Somewhat suprisingly no weather conditions displayed strong correlation to accidents or accident severity. This is most likely due to limitations in how the data was collected. Also, we believe weather to be most significant at causing accidents in extreme forms, however, for a nationwide dataset such as the one we used, extreme weather occurrences are rare and therefore their significance is not clear in the data.
-
-Our machine learning model was able to relatively successfully predict accident severity using the most significant factors discussed above. This performance supports our conclusion that there is a relationship to note between the variables.
-
-## Future Directions
-
-Based on our insights above we can make the following recommendations to clients interested in preventing accidents and decreasing accident severity.
-
-Accident prevention measures should focus on late night driving on weekends. This could potentially include driving under the influence and driving fatigued education initiatives.
-Stops, Speed Bumps, and Roundabouts could be implemented in areas of frequent accidents in order to decrease the rate.
-More Traffic Lights and Crossings in areas of frequent accidents can reduce accident severity.
-Regions with high rainfall, high humidity, or low temperatures should further investigate the effect of weather on accident rates and should explore preventative measures to counteract the increased risk.
-In regards to where to begin, we would reach out to the states with the highest accident rates per 1000 residents in order to encourage a pointed approach to reducing this statistic. In addition, more specific recommendations can be provided based on a specific County or State, as displayed by the performance of the Machine Learning model on Greenville County, SC.
+The US is one of the most crowded countries in the world, and that is the actual reason for the increasing number of accidents in its states. In this work, we made a deep investigation to a dataset of the US accidents for the period from 2016 until 2020. We have utilized Python programming language to make some visualizations that helps to extract some of the hidden facts. Based on the results, we found that California was the state that has the highest number of accidents, and the states that in the southwest and northwest areas are the most states that have more and more accidents. Also, the US accident occurs at morning and afternoon at 7-8 and 4-5 hours, besides that the end of each year has the highest number too. Moreover, the total number of accidents moving increasingly, year by year, which makes our research efficient to put the spotlight on these facts, in order to help the decision makers to avoid having more accidents and find new solutions:
 
 # Run Notebook in Google Colab
 
