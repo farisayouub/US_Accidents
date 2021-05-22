@@ -3,6 +3,7 @@
     -   [US Accidents Data](#us-accidents-data)
     -   [Applications of Dataset](#applications-of-dataset)
 -   [Exploratory Data Analysis](#exploratory-data-analysis)
+    -   [The number of accidents in  each US states ](#the-number-of-accidents-in-each-us-states)
     -   [The number of accidents in US states](#the-number-of-accidents-in-us-states)
     -   [Top 10 States by Number of Accidents](#top-10-states-by-number-of-accidents)
     -   [Accident Rate and Severity by Day of the Week](#accident-rate-and-severity-by-day-of-the-week)
@@ -96,15 +97,19 @@ US-Accidents can be used for numerous applications such as real-time accident pr
 # Exploratory Data Analysis
 Here we explore some of the most interesting trends in our data. Please refer to [our notebook](https://github.com/pard187/pard187.github.io/blob/master/Final_Project_Gormley_Giffin_Johnston_Saleh.ipynb) to explore more profound Data Analysis findings and relatively successful Machine Learning models.
 
+## The number of accidents in  each US states
+The bar plot in figure (1) displayed the whole US states which covers 49 states as y-axis and the count that represents the number of accidents that occurred in each state as x-axis.
+The bar plot is sorting from the highest number of accidents going to the lowest number, we can see that California is ranking as the top states with the largest number of accidents which is 730744. And   South Dakota in the end with the lowest number of accidents which is 217.
+<p align="center">
+    <img src = "Picture7.jpg" alt = "Fig. 1.	The number of accidents in  each US states ">
+</p>
+
 ## The number of accidents in US states
 The scatter plot in figure (2) displayed the whole US map that represents the number of accidents that occurred in the states using the latitude as the x-axis and longitude as the y-axis. 
 The plot shows the states that have the greatest number of accidents like Minnesota, Wisconsin, Indiana, Tennessee, Georgia, South, North Carolina, Florida, Virginia, Pennsylvania, and New York. Generally, the states that placed in the Southwest and Northwest are the most states that accidents occurred in them. 
 
-##The number of accidents in  each US states 
 <p align="center">
     <img src = "Picture1.png" alt = "Fig. 2.	The number of accidents in US states">
-    
-    <img src = "Images/Highway_Network_in_the_US.png" alt = "Map of the Highway Network in the US">
 </p>
 
 ## Top 10 States by Number of Accidents
