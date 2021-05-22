@@ -3,7 +3,13 @@
     -   [US Accidents Data](#us-accidents-data)
     -   [Applications of Dataset](#Applications-of-Dataset)
 -   [Exploratory Data Analysis](#exploratory-data-analysis)
-    -   [Accidents Map](#accidents-map)
+    -   [The number of accidents in  each US states](#accidents-map1)
+    -   [The number of accidents in US states](#accidents-map2)
+    -   [Accidents Map](#accidents-map3)
+    -   [Accidents Map](#accidents-map4)
+    -   [Accidents Map](#accidents-map5)
+    -   [Accidents Map](#accidents-map6)
+    -   [Accidents Map](#accidents-map7)
     -   [Top 10 States by Number of Accidents](#top-10-states-by-number-of-accidents)
     -   [Accident Rate and Severity by Day of the Week](#accident-rate-and-severity-by-day-of-the-week)
     -   [Accident Severity by Time of the Day](#accident-severity-by-time-of-the-day)
@@ -96,12 +102,16 @@ US-Accidents can be used for numerous applications such as real-time accident pr
 # Exploratory Data Analysis
 Here we explore some of the most interesting trends in our data. Please refer to [our notebook](https://github.com/pard187/pard187.github.io/blob/master/Final_Project_Gormley_Giffin_Johnston_Saleh.ipynb) to explore more profound Data Analysis findings and relatively successful Machine Learning models.
 
-## Accidents Map
-The following plot displays a scatterplot of accidents in the United States based on Latitude and Longitude. Note that the points are colored by Severity of the accident with red corresponding the Level 4 Severity (the most severe). Below the plot is a map of the major highways and interstates in the United States.
-From these plots, we make a few observations. First, we observe that the accidents, and the Level 4 accidents in particular, seem to follow along the paths of the major highways and interstates in the United States. We have inserted a figure below to illustrate this point. Second, we observe the highest concentration of Level 4 accidents in the most densely populated areas near large cities such as Chicago, Portland, Colombus, and Jacksonville. The Southeast and Midwest regions show particularly high concentrations of severe accidents.
+## The number of accidents in  each US states
 
+## The number of accidents in US states
+The scatter plot in figure (2) displayed the whole US map that represents the number of accidents that occurred in the states using the latitude as the x-axis and longitude as the y-axis. 
+The plot shows the states that have the greatest number of accidents like Minnesota, Wisconsin, Indiana, Tennessee, Georgia, South, North Carolina, Florida, Virginia, Pennsylvania, and New York. Generally, the states that placed in the Southwest and Northwest are the most states that accidents occurred in them. 
+
+##The number of accidents in  each US states 
 <p align="center">
-    <img src = "Images/Accidents_Throughout_the_US.png" alt = "Scatter Plot of Accidents throughout the US Map">
+    <img src = "Picture1.png" alt = "Fig. 2.	The number of accidents in US states">
+    
     <img src = "Images/Highway_Network_in_the_US.png" alt = "Map of the Highway Network in the US">
 </p>
 
