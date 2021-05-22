@@ -1,7 +1,7 @@
 -   [Introduction](#introduction)
 -   [Data Organization](#data-organization)
     -   [US Accidents Data](#us-accidents-data)
-    -   [US Census Demographic Data](#us-census-demographic-data)
+    -   [Applications of Dataset](#Applications-of-Dataset)
 -   [Exploratory Data Analysis](#exploratory-data-analysis)
     -   [Accidents Map](#accidents-map)
     -   [Top 10 States by Number of Accidents](#top-10-states-by-number-of-accidents)
@@ -14,82 +14,83 @@
 -   [Youtube Video Link](#youtube-video-link)
 -   [Inquiries](#inquiries)
 -   [Data Sources](#data-sources)
--   [Acknowledgments](#acknowledgments)
+-   [Applications of Dataset](#application)
 
 # Introduction
-Motor vehicle accidents is a leading cause of death and injury in the United States. The use of motor vehicles is steadily increasing in the United States, with the number of vehicle miles traveled increasing each year. As more and more Americans place their lives and wellbeing in the hands of traffic and motor vehicles, ensuring their safety becomes an issue of the utmost importance. In 2015 over 2.5 million individuals were treated in emergency departments for injuries resulting from motor vehicle crashes (CDC, 2020). In 2019 alone, the National Highway Traffic Safety Administration reported over 36,096 fatalities in motor vehicle accidents (NHTSA, 2020). In addition to posing a danger to the safety of the people, motor vehicle accidents are currently a financial drain on the United States government and economy. The CDC estimates that for crashes that occurred in 2017, the cost of medical care and productivity losses associated with occupant injuries and deaths from motor vehicle traffic crashes exceeded $75 billion (CDC, 2020). Furthermore, traffic safety has been the target of a significant amount of spending by the government and other organizations.
+Car accidents considering from one of the most problems that occurred in the recent years starting from that time that first car was made. This kind of problem has a lot of problems in different aspects such as economic, Psychological, and human souls. The economic damages that caused by the accidents are big like the damages that occurred on the cars from car metal's damages, re fix the body to re the car to its real shape; which is cause a lot of money costing on the car owner in order to fix it. The main problem of the car accidents caused is human deaths, many numbers of humans died in car accidents over the years which cause by a lot of losses on human souls and money. 
+Knowing the reasons that causes the accidents have an efficient factor in order to avoid and solve car accidents reasons, and provide big and sufficient awareness of people in order to deal with the accidents and how to avoid the reasons that may cause the accidents like the vast speed, focus on the phone and social media while driving, and think about certain things other than driving.
+Knowing the places that accidents occurred helps the government to provide safe facilities in these ways to help the citizens take care of them self while driving then avoiding the accidents as much as they can.
+The main challenge in this kind of research is the huge amount of data used. The reason for the huge amount of data is the vast car accidents that occur every day, every hour, and every second.
+Python programming language used in the paper to read, analyze, and visualize the data in an easy, understandable way using python libraries like Pandas, NumPy, Matplotlib, and Seaborn.
+-	Pandas is a python library for data manipulation and analysis. It provides a data structure and operations for manipulating numerical tables [1].
+-	NumPy is a python library that used in mathematical and logical operations on data [2].
+-	Matplotlib is python package used for data visualization, it is a library for making 2D plots from data [3].
+-	Seaborn is python library provides high level API for visualizing the data [4].
 
-With this in mind, we have decided to analyze data related to accidents in the United States with the goal of uncovering potential patterns in the occurrences of accidents. The specific questions we are looking to investigate are: **What conditions may make the risk of accidents higher?** and **What conditions impact the severity of accidents that occur?**
-
-This analysis has the potential to provide valuable insight for people and organizations who are working to decrease the risk of accidents in the United States. An understanding of factors that increase the risk and severity of motor vehicle accidents would allow these organizations to carry out targeted efforts to ameliorate those conditions. Such efforts not only have the potential to save lives, but also save money and allow for optimal use of funds.
+The paper asked some questions to be answered through the work, these questions represented as follows; displaying the state that has the highest number of accidents, the time that accidents usually do in the United States (US), and visualize the whole data set in one figure.
+The dataset that used in the paper is a countrywide car accident dataset, which covers 49 states of the USA [5]. The accident data are collected from February 2016 to Dec 2020, using multiple APIs that provide streaming traffic incident (or event) data. These APIs broadcast traffic data captured by a variety of entities, such as the US and state departments of transportation, law enforcement agencies, traffic cameras, and traffic sensors within the road networks. Currently, there are about 3 million accident records in this dataset [6].
+The remain paper workflow are as follow; Section II demonstrates the related work, Section III introduce the methodology, Section IV present the experimental results, and Section V conclude the whole study.
 
 # Data Organization
-In order to obtain insight on our question of causes of motor vehicle accidents in the United States, we used two main datasets. The first dataset, [US-Accidents](https://www.kaggle.com/sobhanmoosavi/us-accidents), provides about 3.5 million instances of traffic accidents that have taken place across the contiguous United States between February 2016 and June 2020. The second dataset, [US Census Demographic Data](https://www.kaggle.com/muonneutrino/us-census-demographic-data), contains information regarding the population of each state and county in the United States in 2015 and 2017. For the purposes of this analysis, we use the county data collected in 2017 as it is the more recent of the two. Although the accidents we are looking at happened over the span of five years (2016-2020), we do think that the 2017 population data is a decent representation for all of our analysis since we think that the population would not have changed by a significant amount. The latter dataset will be used to standardize the analysis of the occurrence of accidents across different sized states.
+This is a countrywide traffic accident dataset, which covers 49 states of the United States. The data is continuously being collected from February 2016, using several data providers, including multiple APIs that provide streaming traffic event data. These APIs broadcast traffic events captured by a variety of entities, such as the US and state departments of transportation, law enforcement agencies, traffic cameras, and traffic sensors within the road-networks. Currently, there are about 3 million accident records in this dataset. Check the below descriptions for more detailed information.
 
 After filtering the data by removing the irrelevant attributes to our analysis, we ended up with the following attributes:
 
 ## US Accidents Data:
 <div class="datatable-begin"></div>
 
-| Attribute | Data Type | Description | Nullable |
-| --- | --- | --- | --- |
-| Severity | Ordinal | Shows severity of the accident on a scale of 1-4 (1 indicates the least impact on traffic and 4 indicates a significant impact on traffic | No |
-| Start_Lat | Categorical | Shows latitude in GPS coordinate of the start point | No |
-| Start_Lng | Categorical | Shows longitude in GPS coordinate of the start point | No |
-| Distance(mi) | Ratio | The length of the road extent affected by the accident | No |
-| County | Categorical | Shows the county in address field | Yes |
-| State | Categorical | Shows the state in address field | Yes |
-| Temperature(F) | Categorical | Shows the time-stamp of weather observation record in local time | Yes |
-| Humidity(%) | Categorical | Shows the humidity in percentage | Yes |
-| Pressure(in) | Categorical | Shows air pressure in inches | Yes |
-| Visibility(mi) | Categorical | Shows visibility in miles  | Yes |
-| Wind_Speed| Categorical | Shows wind speed in miles per hour | Yes |
-| Precipitation(in) | Categorical | Shows precipitation amount in inches | Yes |
-| Amenity | Categorical | A POI annotation which indicates presence of amenity in a nearby location | No |
-| Bump | Categorical | A POI annotation which indicates presence of speed bump or hump in a nearby location | No |
-| Crossing | Categorical | A POI annotation which indicates presence of crossing  in a nearby location | No |
-| Give_Way | Categorical | A POI annotation which indicates presence of giveway sign in a nearby location | No |
-| Junction | Categorical | A POI annotation which indicates presence of junction in a nearby location | No |
-| No_Exit | Categorical | A POI annotation which indicates presence of no exit sign in a nearby location | No |
-| Railway | Categorical | A POI annotation which indicates presence of railway in a nearby location | No |
-| Roundabout | Categorical | A POI annotation which indicates presence of roundabout in a nearby location | No |
-| Station | Categorical | A POI annotation which indicates presence of station (bus, train, etc.) in a nearby location | No |
-| Stop | Categorical | A POI annotation which indicates presence of stop sign in a nearby location | No |
-| Traffic_Calming | Categorical | A POI annotation which indicates presence of traffic calming means in a nearby location | No |
-| Traffic_Signal | Categorical | A POI annotation which indicates presence of traffic signal in a nearby location | No |
-| Turning_Loop | Categorical | A POI annotation which indicates presence of turning loop in a nearby location | No |
-| Sunrise_Sunset | Categorical | Shows the period of day (i.e. day or night) based on sunrise/sunset | Yes |
-
+| # | Attribute | Description |Nullable|
+| - | --- | --- |--- |
+|1|	ID|	This is a unique identifier of the accident record.|	No|
+|2|	Severity|	Shows the severity of the accident, a number between 1 and 4, where 1 indicates the least impact on traffic (i.e., short delay as a result of the accident) and 4 indicates a significant impact on traffic (i.e., long delay).|	No|
+|3|	Start Time	|Shows start time of the accident in local time zone.|	No|
+|4	|End_Time	|Shows end time of the accident in local time zone. End time here refers to when the impact of accident on traffic flow was dismissed.	|No|
+|5|	Start_Lat|	Shows latitude in GPS coordinate of the start point.	|No|
+|6	|Start_Lng	|Shows longitude in GPS coordinate of the start point.	|No|
+|7|	End_Lat|	Shows latitude in GPS coordinate of the end point.	|Yes|
+|8|	End_Lng	|Shows longitude in GPS coordinate of the end point.	|Yes|
+|9|	Distance(mi)	|The length of the road extent affected by the accident.	|No|
+|10|	Description	|Shows natural language description of the accident.	|No|
+|11|	Number	|Shows the street number in address field.	|Yes|
+|12|	Street	|Shows the street name in address field.	|Yes|
+|13|	Side	|Shows the relative side of the street (Right/Left) in address field.	|Yes|
+|14|	City	|Shows the city in address field.	|Yes|
+|15|	County	|Shows the county in address field.	|Yes|
+|16|	State	|Shows the state in address field.	|Yes|
+|17|	Zipcode	|Shows the zipcode in address field.	|Yes|
+|18|	Country	|Shows the country in address field.	|Yes|
+|19|	Timezone	|Shows timezone based on the location of the accident (eastern, central, etc.).	|Yes|
+|20|	Airport_Code|	Denotes an airport-based weather station which is the closest one to location of the accident.	|Yes|
+|21|	Weather_Timestamp|	Shows the time-stamp of weather observation record (in local time).	|Yes|
+|22|	Temperature(F)|	Shows the temperature (in Fahrenheit).	|Yes|
+|23|	Wind_Chill(F)|	Shows the wind chill (in Fahrenheit).	|Yes|
+|24|	Humidity(%)	|Shows the humidity (in percentage).	|Yes|
+|25|	Pressure(in)	|Shows the air pressure (in inches).	|Yes|
+|26|	Visibility(mi)|	Shows visibility (in miles).	|Yes|
+|27|	Wind_Direction	|Shows wind direction.	|Yes|
+|28|	Wind_Speed(mph|)	Shows wind speed (in miles per hour).	|Yes|
+|29|	Precipitation(in)|	Shows precipitation amount in inches, if there is any.	|Yes|
+|30|	Weather_Condition|	Shows the weather condition (rain, snow, thunderstorm, fog, etc.)	|Yes|
+|31|	Amenity|	A POI annotation which indicates presence of amenity in a nearby location.|No|
+|32|	Bump|	A POI annotation which indicates presence of speed bump or hump in a nearby location.	|Yes|
+|33|	Crossing|	A POI annotation which indicates presence of crossing in a nearby location.|No|
+|34|	Give_Way|	A POI annotation which indicates presence of give_way in a nearby location.|No|
+|35|	Junction|	A POI annotation which indicates presence of junction in a nearby location.|No|
+|36|	No_Exit|	A POI annotation which indicates presence of no_exit in a nearby location.|No|
+|37|	Railway|	A POI annotation which indicates presence of railway in a nearby location.|No|
+|38|	Roundabout|	A POI annotation which indicates presence of roundabout in a nearby location.|No|
+|39|	Station|	A POI annotation which indicates presence of station in a nearby location.|No|
+|40|	Stop|	A POI annotation which indicates presence of stop in a nearby location.|No|
+|41|	Traffic_Calming	|A POI annotation which indicates presence of traffic_calming in a nearby location.|No|
+|42|	Traffic_Signal|	A POI annotation which indicates presence of traffic_signal in a nearby loction.|No|
+|43|	Turning_Loop|	A POI annotation which indicates presence of turning_loop in a nearby location.|No|
+|44|	Sunrise_Sunset|	Shows the period of day (i.e. day or night) based on sunrise/sunset.	|Yes|
+|45|	Civil_Twilight	|Shows the period of day (i.e. day or night) based on civil twilight.|Yes|
+|46|	Nautical_Twilight|	Shows the period of day (i.e. day or night) based on nautical twilight.|Yes|
+|47|	Astronomical_Twilight|	Shows the period of day (i.e. day or night) based on astronomical twilight.|Yes|
 <div class="datatable-end"></div>
 
-## US Census Demographic Data:
-<div class="datatable-begin"></div>
-
-| Attribute | Data Type | Description | Nullable |
-| --- | --- | --- | --- |
-| State | Categorical | Name of one of the 52 states of America, or DC or Puerto Rico | No |
-| County | Categorical | Name of the county or county equivalent | No |
-| TotalPopulation | Ratio | Total population of the county | No |
-| Drive | Ratio | Percentage of the county’s population commuting alone in a car, van, or truck | No |
-| Transit | Ratio | Percentage of the county’s population commuting on public transport | No |
-| MeanCommute | Ratio | Mean commute time in minutes | No |
-| Poverty | Ratio | Percentage of the county’s population under the level of poverty | No |
-
-<div class="datatable-end"></div>
-
-Furthermore, we added the following attributes that we use later in our analysis:
-<div class="datatable-begin"></div>
-
-| Attribute | Data Type | Description | Nullable |
-| --- | --- | --- | --- |
-| Duration | Ratio | The time duration of the accident in minutes which is calculated as the difference between the start time and end time | No |
-| Start_Hour | Ratio | The hour when the accident started | No |
-| Day | Categorical | The day of the week on which the accident took place | No |
-
-<div class="datatable-end"></div>
-
-For more details about the datasets and a full list of attributes, please refer to [our notebook](https://github.com/pard187/pard187.github.io/blob/master/Final_Project_Gormley_Giffin_Johnston_Saleh.ipynb).
-
+# Applications of Dataset
 # Exploratory Data Analysis
 Here we explore some of the most interesting trends in our data. Please refer to [our notebook](https://github.com/pard187/pard187.github.io/blob/master/Final_Project_Gormley_Giffin_Johnston_Saleh.ipynb) to explore more profound Data Analysis findings and relatively successful Machine Learning models.
 
@@ -171,10 +172,6 @@ For inquiries about this project, please contact Kaelyn Gormley at <a href="mail
 
 # Data Sources
 - [US-Accidents Dataset](https://www.kaggle.com/sobhanmoosavi/us-accidents)
-- [US Census Demographic Data](https://www.kaggle.com/muonneutrino/us-census-demographic-data)
-
-# Acknowledgments
-- Centers for Disease Control and Prevention (CDC), [*Cost Data and Prevention Policies*](https://www.cdc.gov/transportationsafety/costs/index.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmotorvehiclesafety%2Fcosts%2Findex.html), November 2020
 
 
 - Moosavi, S. [*US Accidents (3.5 million records)*](https://www.kaggle.com/sobhanmoosavi/us-accidents), Version 6. 2020 
