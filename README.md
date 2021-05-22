@@ -3,11 +3,13 @@
     -   [US Accidents Data](#us-accidents-data)
     -   [Applications of Dataset](#applications-of-dataset)
 -   [Exploratory Data Analysis](#exploratory-data-analysis)
-    -   [The number of accidents in  each US states ](#the-number-of-accidents-in-each-us-states)
+    -   [The number of accidents in each US states](#the-number-of-accidents-in-each-us-states)
     -   [The number of accidents in US states](#the-number-of-accidents-in-us-states)
-    -   [Top 10 States by Number of Accidents](#top-10-states-by-number-of-accidents)
-    -   [Accident Rate and Severity by Day of the Week](#accident-rate-and-severity-by-day-of-the-week)
-    -   [Accident Severity by Time of the Day](#accident-severity-by-time-of-the-day)
+    -   [The number of accidents in each half of the day](#the-number-of-accidents-in-each-half-of-the-day)
+    -   [The total number of accidents in each year](#the-total-number-of-accidents-in-each-year)
+    -   [The average number of accidents in each month](#the-average-number-of-accidents-in-each-month)
+    -   [The total number of accidents in each hour](#the-total-number-of-accidents-in-each-hour)
+    -   [The total number of accidents in each part of the day](#the-total-number-of-accidents-in-each-part-of-the-day)
 -   [Conclusions](#conclusions)
     -   [Main Observations](#main-observations)
     -   [Future Directions](#future-directions)
@@ -95,11 +97,11 @@ After filtering the data by removing the irrelevant attributes to our analysis, 
 US-Accidents can be used for numerous applications such as real-time accident prediction, studying accident hotspot locations, casualty analysis and extracting cause and effect rules to predict accidents, or studying the impact of precipitation or other environmental stimuli on accident occurrence.
 
 # Exploratory Data Analysis
-Here we explore some of the most interesting trends in our data. Please refer to [our notebook](https://github.com/pard187/pard187.github.io/blob/master/Final_Project_Gormley_Giffin_Johnston_Saleh.ipynb) to explore more profound Data Analysis findings and relatively successful Machine Learning models.
 
-## The number of accidents in  each US states
+## The number of accidents in each US states
 The bar plot in figure (1) displayed the whole US states which covers 49 states as y-axis and the count that represents the number of accidents that occurred in each state as x-axis.
 The bar plot is sorting from the highest number of accidents going to the lowest number, we can see that California is ranking as the top states with the largest number of accidents which is 730744. And   South Dakota in the end with the lowest number of accidents which is 217.
+
 <p align="center">
     <img src = "Picture7.jpg" alt = "Fig. 1.	The number of accidents in  each US states ">
 </p>
@@ -112,26 +114,41 @@ The plot shows the states that have the greatest number of accidents like Minnes
     <img src = "Picture1.png" alt = "Fig. 2.	The number of accidents in US states">
 </p>
 
-## Top 10 States by Number of Accidents
-After standardizing our data based on the population size, we were able to generate this plot which shows the number of accidents per 1000 residents for the top 10 states.
+## The number of accidents in each half of the day
+Based on the dataset, a groupby function used to get the severity for sunset and sunrise. As the pie chart shows in figure (3), the Day represent sunrise and the Night represent sunset, it can be stated that most of the accidents are conducted in the sunrise period, which means that the decision makers should focus on this period to take appropriate actions that prevent the increase of these accidents.
 
 <p align="center">
-    <img src="Images/Top_10_States_by_Number_of_Accidents_per_1000_Residents.png" alt="Bar Plot of the Top 10 States by Number of Accidents per 1000 Residents">
+    <img src="Picture4.png" alt="The number of accidents in each half of the day">
 </p>
 
-## Accident Rate and Severity by Day of the Week
-The following two plots explore the relationship between accidents and days of the week. The first plot compares the number of accidents happening on each day of the week. We note that the number of accidents is fairly consistent Monday-Friday, however, the number of accidents drops significantly, to about a third of the original number, on the weekends. We hypothesize that this could be due to the work commute which happens Monday-Friday, but not on Saturday or Sunday. This is reasonable but something interesting shows up in the second graph, which compares the accident severity on each day of the week. It is noticeable that while there are fewer accidents occuring on the weekends, the severity of the accidents increases. During the weekdays, the percentage of accidents classified as Level 4 is constantly at under 5% of the total number of accidents. However, on Saturday and Sunday, this percentage nearly doubles.
+## The total number of accidents in each year
+Moreover, the bar chart in figure (4) shows that accidents which happened in US states for the period from 2016 until 2020, and it can be stated that the number of accidents is moving increasingly year by year, where the year 2020 has the highest number of accidents in comparison with the other years.
 
 <p align="center">
-    <img src="Images/Number_of_Accidents_by_Day_of_the_Week.png" alt="Bar Plot of the Number of Accidents by Day of the Week">
-    <img src="Images/Severity_of_Accident_by_Day_of_the_Week.png" alt="Bar Plot of the Severity of Accidents by Day of the Week">
+    <img src="Picture2.png" alt="The total number of accidents in each year">
+   
 </p>
 
-## Accident Severity by Time of the Day
-This plot aims to compare the severity of accidents happening in the daytime versus those happening at night. We note that as the severity of the motor vehicle accident increases, the percentage of accidents that occur after sunset increases from less than 20% (Severity Level 1) to nearly 40% (Severity Level 4). We hypothesize that this difference could be due to driving conditions, specifically the lack of light during those hours of the day, as the sun has completely set. This could also be due to human conditions such as fatigue, or intoxication, which we hypothesize may be more prevalent during those late hours.
+## The average number of accidents in each month
+Furthermore, the bar chart in figure (5) shows the average number of accidents which happened in US states for the period from 2016 until 2020 per month. Based on the results, the number of accidents is moving constantly, and start increasing after the 7th month of the year, which be explained by the different situations that makes people go to the streets and shops and other places because of several events, besides that the highest number of accidents occurs in the 12th month which includes the new year event that people use to go out and make festivals. Hence, the decision makers should take proper actions to prevent the accidents in that time.
+
 
 <p align="center">
-    <img src="Images/Severity_of_Accidents_and_Light_Condition.png" alt="Bar Plot of the Severity of Accidents during Day and Night">
+    <img src="Picture3.png" alt="The average number of accidents in each month">
+</p>
+
+## The total number of accidents in each hour
+In addition, the bar chart in figure (6) shows the average number of accidents which happened in US states for the same period per hour. Based on the results, the highest number of accidents is occurred in two periods, which are 7-8 AM – the beginning of work for employees - and 4-5 PM – the end of work for employees - which can be considered as a critical time, in which the decision makers should take proper actions to stop increasing the number of accidents in it.
+
+<p align="center">
+    <img src="Picture5.png" alt="The total number of accidents in each hour">
+</p>
+
+## The total number of accidents in each part of the day
+Finally, the bar chart in figure (7) shows the average number of accidents which happened in US states for the same period per day parts. Based on the results, the forgoing facts are proved well, because it can seen that afternoon and morning parts of day have the highest number of accidents in comparison with the other parts, which are; morning and night
+
+<p align="center">
+    <img src="Picture6.png" alt="The total number of accidents in each part of the day">
 </p>
 
 # Conclusions
