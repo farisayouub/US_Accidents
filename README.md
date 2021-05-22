@@ -12,7 +12,6 @@
     -   [The total number of accidents in each part of the day](#the-total-number-of-accidents-in-each-part-of-the-day)
 -   [Conclusions](#conclusions)
 -   [Run Notebook in Google Colab](#run-notebook-in-google-colab)
--   [Youtube Video Link](#youtube-video-link)
 -   [Inquiries](#inquiries)
 -   [Data Sources](#data-sources)
 
@@ -152,37 +151,100 @@ Finally, the bar chart in figure (7) shows the average number of accidents which
 # Conclusions
 The US is one of the most crowded countries in the world, and that is the actual reason for the increasing number of accidents in its states. In this work, we made a deep investigation to a dataset of the US accidents for the period from 2016 until 2020. We have utilized Python programming language to make some visualizations that helps to extract some of the hidden facts. Based on the results, we found that California was the state that has the highest number of accidents, and the states that in the southwest and northwest areas are the most states that have more and more accidents. Also, the US accident occurs at morning and afternoon at 7-8 and 4-5 hours, besides that the end of each year has the highest number too. Moreover, the total number of accidents moving increasingly, year by year, which makes our research efficient to put the spotlight on these facts, in order to help the decision makers to avoid having more accidents and find new solutions:
 
-# Run Notebook in Google Colab
+# Code
 
-Click the link below to run [our notebook](https://github.com/pard187/pard187.github.io/blob/master/Final_Project_Gormley_Giffin_Johnston_Saleh.ipynb) directly in Google Collab. No coding is required to run this notebook, you just need to run every code cell in order or simply click Runtime -> Run all and wait for all cells to run. 
-Click the link below to run [our notebook](https://github.com/pard187/pard187.github.io/blob/master/Final_Project_Gormley_Giffin_Johnston_Saleh.ipynb) directly in Google Collab. No coding is required to run this notebook, you just need to run every code cell in order or simply click Runtime -> Run all and wait for all cells to run.
 
-*Please note that since the US-Accident dataset we are using is too big, it was not convienient to download and import it to Google Drive or Github. Therefore, our notebook is pulling the data directly from Kaggle. A potential drawback to this method is that any changes to the dataset on Kaggle will affect the ability of the analysis in this notebook to be replicated. At the time of analysis, the US-Accidents dataset was last updated July 9, 2020. Were the dataset to be altered at a later date, then the conclusions drawn as a part of this analysis might change. We have however, stored a version of the US Accidents data in this GitHub repository for access at a later date.*
+*Please note that since the US-Accident dataset we are using is too big, it was not convienient to download and import it to Google Drive or Github.*
 
-<table align="left">
-  <td>
-    <a target="_blank" href="https://colab.research.google.com/github/pard187/pard187.github.io/blob/master/Final_Project_Gormley_Giffin_Johnston_Saleh.ipynb"><img src="https://www.tensorflow.org/images/colab_logo_32px.png" />Run in Google Colab</a>
-  </td>
-</table>
-<br> <br> <br>
+## Task1
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
 
-# Youtube Video Link
-Check out our walkthrough video [here](https://youtube.com/watch?v=IXMQVvu-zYY)!
+df = pd.read_csv('C:/Users/FARIS/Desktop/archive/US_Accidents_Dec20_Updated.csv')
+df.head()
 
-# Inquiries
-For inquiries about this project, please contact Kaelyn Gormley at <a href="mailto:gormleyk@lafayette.edu">gormleyk@lafayette.edu</a>, James Giffin at <a href="mailto:giffinj@lafayette.edu">giffinj@lafayette.edu</a>, Kate Johnston at <a href="mailto:johnstkr@lafayette.edu">johnstkr@lafayette.edu</a>, or Marwa Saleh at <a href="mailto:salehm@lafayette.edu">salehm@lafayette.edu</a>.
+print(df.columns)
+
+numberOfAccidents = df[["ID", "State"]].groupby("State").count().sort_values("ID", ascending=False)
+numberOfAccidents
+
+import warnings
+warnings.simplefilter(action="ignore", category=FutureWarning)
+
+sns.barplot(numberOfAccidents["ID"], numberOfAccidents.index)
+sns.set(rc={"figure.figsize":(10, 8)})
+
+x = numberOfAccidents["ID"]
+y = numberOfAccidents.index
+plt.figure(figsize=(15, 5))
+display(plt.plot(y,x))
+plt.xlabel('states')
+plt.ylabel('Number of accidents')
+plt.show()
+
+## Task2
+import pandas as pd
+import numpy as np
+import matplotlib
+import seaborn as sns
+%matplotlib inline
+from sklearn.preprocessing import LabelEncoder
+import matplotlib.pyplot as plt 
+
+Data=pd.read_csv('US_Accidents_Dec20_Updated.csv')
+df = pd.DataFrame(Data)
+df.drop(['End_Lat', 'End_Lng', 'Number', 'Wind_Chill(F)','Precipitation(in)'], axis=1, inplace=True)
+df.dropna(axis=0)
+df.head()
+plt.figure(figsize =(10,5))
+df.groupby(['Sunrise_Sunset'])['Severity'].size().sort_values(ascending=False).plot.pie()
+import datetime as dt
+df['Start_Time']= pd.to_datetime(df['Start_Time'])
+df['hour']= df['Start_Time'].dt.hour
+df['year']= df['Start_Time'].dt.year
+df['month']= df['Start_Time'].dt.month
+df['week']= df['Start_Time'].dt.week
+#df['day']= df['Start_Time'].dt.weekday_name
+df['quarter']= df['Start_Time'].dt.quarter
+df['time_zone']= df['Start_Time'].dt.tz
+df['time']= df['Start_Time'].dt.time
+plt.figure(figsize =(10,5))
+df.groupby(['year']).size().sort_values(ascending=True).plot.bar()
+plt.figure(figsize =(15,5))
+df.groupby(['month']).size().plot.bar()
+plt.title('Number of accidents/month')
+plt.ylabel('Avg number of accidents')
+dd = df['month']
+dd['m'] = df['year']
+dd
+plt.figure(figsize =(10,5))
+df.groupby(['hour']).size().plot.bar()
+plt.title('At which hour of day accidents happen')
+plt.ylabel('count of accidents')
+df['day_zone'] = pd.cut((df['hour']),bins=(0,6,12,18,24), labels=["night", "morning", "afternoon", "evening"])
+plt.figure(figsize =(10,5))
+df.groupby(['day_zone']).size().plot.bar()
+
+
+## Task3 
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+
+read_US_dataset = pd.read_csv('US_Accidents_Dec20.csv')
+US_accident_data_frame = pd.DataFrame(read_US_dataset)
+
+
+plt.figure(figsize=(18, 8))
+sns.scatterplot(x ='Start_Lng',y='Start_Lat', data=US_accident_data_frame
+                , hue='State')
+
 
 # Data Sources
 - [US-Accidents Dataset](https://www.kaggle.com/sobhanmoosavi/us-accidents)
-
-
 - Moosavi, S. [*US Accidents (3.5 million records)*](https://www.kaggle.com/sobhanmoosavi/us-accidents), Version 6. 2020 
 - Moosavi, S. [*US Accidents (3.5 million records)*](https://www.kaggle.com/sobhanmoosavi/us-accidents), Version 6. 2020
-
-- Moosavi, Sobhan, Mohammad Hossein Samavatian, Srinivasan Parthasarathy, and Rajiv Ramnath. [*A Countrywide Traffic Accident Dataset.*](https://arxiv.org/abs/1906.05409), 2019.
-
-- Moosavi, Sobhan, Mohammad Hossein Samavatian, Srinivasan Parthasarathy, Radu Teodorescu, and Rajiv Ramnath. [*Accident Risk Prediction based on Heterogeneous Sparse Data: New Dataset and Insights.*](https://arxiv.org/abs/1909.09638), 2019.
-
-- Muon, Neutrino. [*US Census Dempgraphic Data*](https://www.kaggle.com/muonneutrino/us-census-demographic-data), Version 3. 2018
-
-- National Highway Traffic Safety Administration (NHTSA), [*2019 Fatality Data Show Continued Annual Decline in Traffic Deaths*](https://www.nhtsa.gov/press-releases/2019-fatality-data-traffic-deaths-2020-q2-projections), October 2020
