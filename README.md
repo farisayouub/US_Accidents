@@ -1,15 +1,9 @@
 -   [Introduction](#introduction)
 -   [Data Organization](#data-organization)
     -   [US Accidents Data](#us-accidents-data)
-    -   [Applications of Dataset](#Applications-of-Dataset)
+    -   [Applications of Dataset](#applications-of-dataset)
 -   [Exploratory Data Analysis](#exploratory-data-analysis)
-    -   [The number of accidents in  each US states](#accidents-map1)
-    -   [The number of accidents in US states](#accidents-map2)
-    -   [Accidents Map](#accidents-map3)
-    -   [Accidents Map](#accidents-map4)
-    -   [Accidents Map](#accidents-map5)
-    -   [Accidents Map](#accidents-map6)
-    -   [Accidents Map](#accidents-map7)
+    -   [The number of accidents in US states](#the-number-of-accidents-in-us-states)
     -   [Top 10 States by Number of Accidents](#top-10-states-by-number-of-accidents)
     -   [Accident Rate and Severity by Day of the Week](#accident-rate-and-severity-by-day-of-the-week)
     -   [Accident Severity by Time of the Day](#accident-severity-by-time-of-the-day)
@@ -101,8 +95,6 @@ US-Accidents can be used for numerous applications such as real-time accident pr
 
 # Exploratory Data Analysis
 Here we explore some of the most interesting trends in our data. Please refer to [our notebook](https://github.com/pard187/pard187.github.io/blob/master/Final_Project_Gormley_Giffin_Johnston_Saleh.ipynb) to explore more profound Data Analysis findings and relatively successful Machine Learning models.
-
-## The number of accidents in  each US states
 
 ## The number of accidents in US states
 The scatter plot in figure (2) displayed the whole US map that represents the number of accidents that occurred in the states using the latitude as the x-axis and longitude as the y-axis. 
