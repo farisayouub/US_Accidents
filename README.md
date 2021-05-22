@@ -157,30 +157,45 @@ The US is one of the most crowded countries in the world, and that is the actual
 
 ## Task1
 import pandas as pd
+
 import seaborn as sns
+
 import matplotlib.pyplot as plt
 
+
 df = pd.read_csv('C:/Users/FARIS/Desktop/archive/US_Accidents_Dec20_Updated.csv')
+
 df.head()
 
 print(df.columns)
 
 numberOfAccidents = df[["ID", "State"]].groupby("State").count().sort_values("ID", ascending=False)
+
 numberOfAccidents
 
 import warnings
+
 warnings.simplefilter(action="ignore", category=FutureWarning)
 
+
 sns.barplot(numberOfAccidents["ID"], numberOfAccidents.index)
+
 sns.set(rc={"figure.figsize":(10, 8)})
 
 x = numberOfAccidents["ID"]
+
 y = numberOfAccidents.index
+
 plt.figure(figsize=(15, 5))
+
 display(plt.plot(y,x))
+
 plt.xlabel('states')
+
 plt.ylabel('Number of accidents')
+
 plt.show()
+
 
 ## Task2
 import pandas as pd
@@ -267,18 +282,22 @@ df.groupby(['day_zone']).size().plot.bar()
 ## Task3 
 
 import numpy as np
+
 import pandas as pd
+
 import matplotlib.pyplot as plt
+
 import seaborn as sns
 
 
+
 read_US_dataset = pd.read_csv('US_Accidents_Dec20.csv')
+
 US_accident_data_frame = pd.DataFrame(read_US_dataset)
 
-
 plt.figure(figsize=(18, 8))
-sns.scatterplot(x ='Start_Lng',y='Start_Lat', data=US_accident_data_frame
-                , hue='State')
+
+sns.scatterplot(x ='Start_Lng',y='Start_Lat', data=US_accident_data_frame , hue='State')
 
 
 # Data Sources
